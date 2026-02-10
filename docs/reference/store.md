@@ -146,5 +146,5 @@ const MyComponent = () => {
 
 - [Integrations](integrations.md) — Zustand package details
 - [Component Structure](../contributing/component-structure.md) — store usage in components
-- [Engineering Principles](../contributing/rules-code.md) — state management and side effects rules
+- [Engineering Principles](../contributing/code.md) — state management and side effects rules
 - [Getting Started](../getting-started/getting-started.md) — project structure overview

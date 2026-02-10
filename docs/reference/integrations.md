@@ -59,4 +59,4 @@ Self-hosted Roboto font with weights 300, 400, 500, 700 and latin + cyrillic sub
 - [Getting Started](../getting-started/getting-started.md) — setup, tech stack, theming
 - [Store](store.md) — Zustand architecture and usage
 - [Component Structure](../contributing/component-structure.md) — how to organize components
-- [Engineering Principles](../contributing/rules-code.md) — 16 frontend rules
+- [Engineering Principles](../contributing/code.md) — 16 frontend rules

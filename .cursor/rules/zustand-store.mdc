@@ -1,0 +1,76 @@
+---
+description: "Zustand store patterns and slice creation"
+globs: "src/store/**/*.ts"
+alwaysApply: false
+---
+
+# Zustand Store Patterns
+
+## Architecture
+
+- Uses `createWithEqualityFn` from `zustand/traditional`
+- Custom equality: strict equality OR shallow comparison
+- Slices hold STATE ONLY — no setters, no actions
+- Mutations via `setAppStore()`
+- Reads via external selectors or `getAppStore()`
+
+## Creating a New Slice
+
+1. Create `src/store/slices/mySlice.ts`:
+
+```typescript
+import type { StateCreator } from "zustand";
+import type { IAppStore } from "../index";
+
+export interface IMySlice {
+  count: number;
+  items: string[];
+}
+
+const createMySlice: StateCreator<IAppStore, [], [], IMySlice> = () => ({
+  count: 0,
+  items: [],
+});
+
+export default createMySlice;
+```
+
+2. Compose in `src/store/index.ts`:
+
+```typescript
+import createMySlice, { type IMySlice } from "./slices/mySlice";
+
+export type IAppStore = IUiStore & IMySlice;
+
+export const useAppStore = createWithEqualityFn<IAppStore>(
+  (...args) => ({
+    ...createUiSlice(...args),
+    ...createMySlice(...args),
+  }),
+  compare
+);
+```
+
+## Usage
+
+```typescript
+// External selector (define OUTSIDE component)
+const selector = (store: IAppStore) => ({ count: store.count });
+
+// In component
+const { count } = useAppStore(selector);
+
+// Mutate
+setAppStore({ count: 5 });
+setAppStore((s) => ({ count: s.count + 1 }));
+
+// Read outside React
+const value = getAppStore().count;
+```
+
+## Rules
+
+- NEVER define selectors inside components
+- NEVER put actions or setters in slices
+- ALWAYS use `setAppStore` for mutations
+- Use `I` prefix for store interfaces

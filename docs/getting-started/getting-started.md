@@ -104,4 +104,4 @@ Extend the theme in `src/theme.ts` — see [MUI theming docs](https://mui.com/ma
 - [Integrations](../reference/integrations.md) — third-party libraries and config
 - [Store](../reference/store.md) — Zustand state management
 - [Component Structure](../contributing/component-structure.md) — how to organize components
-- [Engineering Principles](../contributing/rules-code.md) — 16 frontend rules
+- [Engineering Principles](../contributing/code.md) — 16 frontend rules

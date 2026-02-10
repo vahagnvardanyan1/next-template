@@ -1,0 +1,44 @@
+---
+description: "Core project context and conventions for next-template"
+alwaysApply: true
+---
+
+# Project: next-template
+
+Next.js 16 App Router + MUI 7 + Zustand 5 + next-intl 4 + TypeScript 5 + React 19.
+
+## Commands
+
+- `npm run dev` — development server
+- `npm run build` — production build
+- `npm run lint` — ESLint check
+- `npm run lint-fix` — ESLint auto-fix
+
+## Architecture
+
+- All routes under `src/app/[locale]/` (locale-prefixed: en, hy, ru)
+- Server components by default — `"use client"` only for hooks, event handlers, browser APIs
+- Zustand slices hold state only — mutations via `setAppStore()`, reads via external selectors
+- MUI theme with CSS variables, light/dark via `data-color-scheme`
+- Emotion CSS-in-JS for styling
+- Translations: `useTranslator()` client-side, `getTranslations()` server-side
+- Path alias: `@/*` resolves to `./src/*`
+
+## Component Structure
+
+Each component in own directory:
+- `Component.tsx` — UI only, props interface, no business logic
+- `styled.tsx` — styled MUI components (`"use client"` required)
+- `index.ts` — named re-export
+
+## Code Rules
+
+- Function expressions only (`const fn = () => {}`), never `function fn() {}`
+  - Exception: `export default function` for Next.js pages/layouts
+- Functions with 2+ params use single object argument
+- Import order: Framework > Third-party > Local (blank lines between groups)
+- Use `import type` for type-only imports
+- PascalCase components, camelCase hooks, UPPER_SNAKE_CASE constants
+- `I` prefix for store interfaces (e.g., `IAppStore`)
+- Max 250 lines per file, max nesting depth 3, max complexity 10
+- No `console.log` — only `console.warn` and `console.error`

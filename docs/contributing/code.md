@@ -1,6 +1,6 @@
 # Engineering Principles — Code Rules (1–8)
 
-Core rules for writing clean frontend code in next-template. For architecture rules, see [Part 2](./rules-architecture.md).
+Core rules for writing clean frontend code in next-template. For architecture rules, see [Part 2](./architecture.md).
 
 ## 1. Argument Passing as Object
 
@@ -137,6 +137,6 @@ Use `import type` for type-only imports. Prefer named imports.
 
 ## See Also
 
-- [Part 2 — Architecture Rules (9–16)](./rules-architecture.md)
+- [Part 2 — Architecture Rules (9–16)](./architecture.md)
 - [Component Structure](./component-structure.md) — how to organize components
 - [Store](../reference/store.md) — Zustand patterns

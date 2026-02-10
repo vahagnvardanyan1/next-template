@@ -96,11 +96,11 @@ export default function CounterDemo() {
 - **Translations** — `useTranslator()` in client components, `getTranslations()` in server components.
 - **Functions** — use function expressions. `export default function` is acceptable for Next.js pages/layouts.
 
-For logic separation, DRY, reusable components, and lazy loading rules, see Engineering Principles [Part 1](./rules-code.md) and [Part 2](./rules-architecture.md).
+For logic separation, DRY, reusable components, and lazy loading rules, see Engineering Principles [Part 1](./code.md) and [Part 2](./architecture.md).
 
 ## See Also
 
-- [Engineering Principles — Code Rules (1–8)](./rules-code.md)
-- [Engineering Principles — Architecture Rules (9–16)](./rules-architecture.md)
+- [Engineering Principles — Code Rules (1–8)](./code.md)
+- [Engineering Principles — Architecture Rules (9–16)](./architecture.md)
 - [Store](../reference/store.md) — Zustand state management
 - [Getting Started](../getting-started/getting-started.md) — project setup and structure

@@ -1,0 +1,85 @@
+---
+description: "React component and MUI patterns"
+globs: "src/components/**/*.tsx,src/app/**/*.tsx"
+alwaysApply: false
+---
+
+# React & MUI Patterns
+
+## Component Structure
+
+Each component in own directory with three files:
+
+```
+src/components/MyComponent/
+  MyComponent.tsx    # UI only
+  styled.tsx         # Styled MUI components ("use client" required)
+  index.ts           # Named re-export
+```
+
+## Component File Template
+
+```typescript
+"use client"; // Only if hooks or browser APIs needed
+
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+
+import { StyledContainer } from "./styled";
+
+interface MyComponentProps {
+  title: string;
+}
+
+export const MyComponent = ({ title }: MyComponentProps) => (
+  <StyledContainer>
+    <Typography variant="h6">{title}</Typography>
+  </StyledContainer>
+);
+```
+
+## Styled File Template
+
+```typescript
+"use client";
+
+import { styled } from "@mui/material/styles";
+import Box from "@mui/material/Box";
+
+export const StyledContainer = styled(Box)(({ theme }) => ({
+  padding: theme.spacing(2),
+  borderRadius: theme.shape.borderRadius,
+}));
+```
+
+## Key Rules
+
+- Server components by default — `"use client"` only when needed
+- No business logic in UI components — extract to hooks or services
+- Props must have a TypeScript interface
+- Avoid inline `sx` style objects — use `styled.tsx`
+- Self-closing tags: `<Box />` not `<Box></Box>`
+- Boolean props: `<Input disabled />` not `<Input disabled={true} />`
+
+## Zustand in Components
+
+Define selectors OUTSIDE the component:
+
+```typescript
+const selector = (store: IAppStore) => ({ counter: store.counter });
+
+export const MyComponent = () => {
+  const { counter } = useAppStore(selector);
+  return <CounterValue>{counter}</CounterValue>;
+};
+```
+
+Mutations via `setAppStore`:
+```typescript
+setAppStore((s) => ({ counter: s.counter + 1 }));
+```
+
+## Translations
+
+- Client components: `useTranslator()` hook
+- Server components: `getTranslations()` async function
