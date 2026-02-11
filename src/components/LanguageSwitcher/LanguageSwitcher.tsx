@@ -5,7 +5,7 @@ import { useLocale } from "next-intl";
 import MenuItem from "@mui/material/MenuItem";
 import type { SelectChangeEvent } from "@mui/material/Select";
 
-import useTranslator from "@/hooks/useTranslator";
+import { useTranslator } from "@/hooks/useTranslator";
 import { useRouter, usePathname } from "@/i18n/navigation";
 
 import { LocaleSelect } from "./styled";
@@ -16,7 +16,7 @@ const locales = [
   { code: "ru", labelKey: "russian" },
 ] as const;
 
-export default function LanguageSwitcher() {
+export const LanguageSwitcher = () => {
   const translate = useTranslator();
   const locale = useLocale();
   const router = useRouter();
@@ -35,4 +35,4 @@ export default function LanguageSwitcher() {
       ))}
     </LocaleSelect>
   );
-}
+};

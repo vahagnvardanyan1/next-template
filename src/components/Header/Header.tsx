@@ -7,12 +7,12 @@ import { useColorScheme } from "@mui/material/styles";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 
-import LanguageSwitcher from "@/components/LanguageSwitcher";
-import useTranslator from "@/hooks/useTranslator";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
+import { useTranslator } from "@/hooks/useTranslator";
 
 import { LightIcon, DarkIcon } from "./styled";
 
-export default function Header() {
+export const Header = () => {
   const { mode, setMode } = useColorScheme();
   const translate = useTranslator();
 
@@ -90,4 +90,4 @@ export default function Header() {
       </Toolbar>
     </AppBar>
   );
-}
+};

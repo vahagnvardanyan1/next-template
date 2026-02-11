@@ -2,6 +2,4 @@
 
 import { useTranslations } from "next-intl";
 
-export default function useTranslator() {
-  return useTranslations();
-}
+export const useTranslator = () => useTranslations();

@@ -6,7 +6,7 @@ import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Stack from "@mui/material/Stack";
 
-import CounterDemo from "@/components/CounterDemo";
+import { CounterDemo } from "@/components/CounterDemo";
 
 import {
   HeroRoot,
@@ -20,7 +20,7 @@ import {
   DemoWrapper,
 } from "./styled";
 
-const Hero = async () => {
+export const Hero = async () => {
   const t = await getTranslations();
 
   return (
@@ -92,5 +92,3 @@ const Hero = async () => {
     </HeroRoot>
   );
 };
-
-export default Hero;

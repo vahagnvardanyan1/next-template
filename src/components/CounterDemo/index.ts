@@ -1,1 +1,1 @@
-export { default } from "./CounterDemo";
+export { CounterDemo } from "./CounterDemo";

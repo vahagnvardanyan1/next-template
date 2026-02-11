@@ -23,7 +23,7 @@ const selector = (store: IAppStore) => ({
   counter: store.counter,
 });
 
-export default function CounterDemo() {
+export const CounterDemo = () => {
   const { counter } = useAppStore(selector);
 
   return (
@@ -67,4 +67,4 @@ export default function CounterDemo() {
       </CodeHint>
     </CardRoot>
   );
-}
+};

@@ -1,11 +1,11 @@
 import Box from "@mui/material/Box";
 
-import Hero from "@/components/Hero";
+import { Hero } from "@/components/Hero";
 
-export default async function HomePage() {
-  return (
-    <Box component="main">
-      <Hero />
-    </Box>
-  );
-}
+const HomePage = async () => (
+  <Box component="main">
+    <Hero />
+  </Box>
+);
+
+export default HomePage;

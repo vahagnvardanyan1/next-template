@@ -6,11 +6,7 @@ import { ThemeProvider as MuiThemeProvider } from "@mui/material/styles";
 
 import theme from "@/theme";
 
-export default function ThemeProvider({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export const ThemeProvider = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
       <InitColorSchemeScript attribute="data-color-scheme" />
@@ -20,4 +16,4 @@ export default function ThemeProvider({
       </MuiThemeProvider>
     </>
   );
-}
+};

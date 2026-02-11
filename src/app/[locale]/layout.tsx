@@ -6,9 +6,9 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations } from "next-intl/server";
 
 import { routing } from "@/i18n/routing";
-import Header from "@/components/Header";
+import { Header } from "@/components/Header";
 import { BASE_URL } from "@/constants/configs";
-import ThemeProvider from "@/providers/ThemeProvider";
+import { ThemeProvider } from "@/providers/ThemeProvider";
 import "../globals.css";
 
 const roboto = Roboto({
